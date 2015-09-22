@@ -9,7 +9,7 @@ $images = array('@img/aa.jpg');
 // 2.图片url
 // $images = array('http://image.zzd.sm.cn/18053189379075177102.jpg','http://image.zzd.sm.cn/14984010053067146833.jpg');
 
-$taskUrl = 'http://api.open.tuputech.com/v2/classification/54bcfc31329af61034f7c2f8/54bcfc6c329af61034f7c2fc'; 
+$taskUrl = 'http://api.open.tuputech.com/v3/recognition/'.$secretid; 
 
 // 得到参与签名的参数
 $sign_string = $secretid.",".$timestamp.",".$nonce;
@@ -21,7 +21,6 @@ openssl_sign($sign_string, $signature, $pkeyid, OPENSSL_ALGO_SHA256);
 $signature = base64_encode( $signature );
 
 $data = array(
-    'secretId' => $secretid,
     'image' => $images,
     'timestamp' => $timestamp,
     'nonce' => $nonce,
